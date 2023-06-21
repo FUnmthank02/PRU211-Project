@@ -340,79 +340,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &721035068
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5255965035553070512, guid: e0a67118bbe114c44bfe7f403f0b96f1, type: 3}
-      propertyPath: enermy
-      value: 
-      objectReference: {fileID: 1249026721}
-    - target: {fileID: 5255965035553070512, guid: e0a67118bbe114c44bfe7f403f0b96f1, type: 3}
-      propertyPath: bossBehavior
-      value: 
-      objectReference: {fileID: 838753325}
-    - target: {fileID: 5255965035553070512, guid: e0a67118bbe114c44bfe7f403f0b96f1, type: 3}
-      propertyPath: goblinBehavior
-      value: 
-      objectReference: {fileID: 1249026728}
-    - target: {fileID: 5255965035553070514, guid: e0a67118bbe114c44bfe7f403f0b96f1, type: 3}
-      propertyPath: m_Name
-      value: Goblin
-      objectReference: {fileID: 0}
-    - target: {fileID: 5255965035553070517, guid: e0a67118bbe114c44bfe7f403f0b96f1, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5255965035553070517, guid: e0a67118bbe114c44bfe7f403f0b96f1, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.1579418
-      objectReference: {fileID: 0}
-    - target: {fileID: 5255965035553070517, guid: e0a67118bbe114c44bfe7f403f0b96f1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -12.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 5255965035553070517, guid: e0a67118bbe114c44bfe7f403f0b96f1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.7061
-      objectReference: {fileID: 0}
-    - target: {fileID: 5255965035553070517, guid: e0a67118bbe114c44bfe7f403f0b96f1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5255965035553070517, guid: e0a67118bbe114c44bfe7f403f0b96f1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5255965035553070517, guid: e0a67118bbe114c44bfe7f403f0b96f1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5255965035553070517, guid: e0a67118bbe114c44bfe7f403f0b96f1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5255965035553070517, guid: e0a67118bbe114c44bfe7f403f0b96f1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5255965035553070517, guid: e0a67118bbe114c44bfe7f403f0b96f1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5255965035553070517, guid: e0a67118bbe114c44bfe7f403f0b96f1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5255965035553070517, guid: e0a67118bbe114c44bfe7f403f0b96f1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e0a67118bbe114c44bfe7f403f0b96f1, type: 3}
 --- !u!1 &762810161
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,24 +658,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4, y: 0.93}
   m_EdgeRadius: 0
---- !u!1 &1249026721 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5255965035553070514, guid: e0a67118bbe114c44bfe7f403f0b96f1, type: 3}
-  m_PrefabInstance: {fileID: 721035068}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1249026728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1249026721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bb58c0c5ebeb6342a7a0ff05af56451, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goblin: {fileID: 1249026721}
 --- !u!1 &1559147503
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,7 +687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde8aee11c8119a429d3b0b1a16dd8d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enermy: {fileID: 1249026721}
+  enermy: {fileID: 5729622160942941596, guid: e0a67118bbe114c44bfe7f403f0b96f1, type: 3}
   timeBeforeSpawning: 1.5
   timeBetweenEnemies: 0.25
   timeBeforeWaves: 2
