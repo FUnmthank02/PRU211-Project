@@ -20,12 +20,7 @@ public class GameController : MonoBehaviour
         StartCoroutine(SpawnEnemies());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    // spawn small enermies (goblin)
     IEnumerator SpawnEnemies()
     {
         // Give the player time before we start the game
@@ -61,10 +56,5 @@ public class GameController : MonoBehaviour
             yield return new WaitForSeconds(timeBeforeWaves);
             limitSpawn--;
         }
-    }
-
-    public void KilledEnemy()
-    {
-        currentNumberOfEnemies--;
     }
 }

@@ -10,7 +10,6 @@ public class GoblinControl : MonoBehaviour
     private const float facingToFaceDistance = 2f;
     public GoblinBehavior goblinBehavior;
 
-    // Use this for initialization
     void Start()
     {
         player = GameObject.FindWithTag(Constants.player_name).transform;

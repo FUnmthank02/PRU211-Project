@@ -8,43 +8,42 @@ public class BossBehavior : MonoBehaviour
     public GameObject boss;
     Animator animator;
 
-    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     
+    // handle walk
     public void handleWalk()
     {
         animator.SetBool(Constants.animation_boss_walk, true);
     }
 
+    // handle stop walking
     public void handleStopWalking()
     {
         animator.SetBool(Constants.animation_boss_walk, false);
     }
 
+    // handle death
     public void handleDealth()
     {
         animator.SetTrigger(Constants.animation_boss_death);
     }
 
+    // handle hurt
     public void handleHurt()
     {
         animator.SetTrigger(Constants.animation_boss_hurt);
     }
 
+    // handle attack
     public void handleAttack()
     {
         animator.SetTrigger(Constants.animation_boss_attack);
     }
 
+    // handle cast spell
     public void handleCast()
     {
         animator.SetTrigger(Constants.animation_boss_cast);
