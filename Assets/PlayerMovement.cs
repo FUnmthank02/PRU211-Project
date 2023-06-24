@@ -59,15 +59,15 @@ public class PlayerMovement : MonoBehaviour
         {
             Flip();
         }
-        if (Input.GetButtonDown("Fire3"))
-        {
-            animator.SetBool("IsAttacking", true);
-        }
-        else
-        {
-            animator.SetBool("IsAttacking", false);
+        //if (Input.GetButtonDown("Fire3"))
+        //{
+        //    animator.SetBool("IsAttacking", true);
+        //}
+        //else
+        //{
+        //    animator.SetBool("IsAttacking", false);
 
-        }
+        //}
         Slide();
 
 
