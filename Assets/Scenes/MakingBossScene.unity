@@ -146,6 +146,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blade
       objectReference: {fileID: 0}
+    - target: {fileID: 1860187974735293841, guid: 85b6b80b49f7be342b3d2349068c3d69, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1860187974735293841, guid: 85b6b80b49f7be342b3d2349068c3d69, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1860187974735293842, guid: 85b6b80b49f7be342b3d2349068c3d69, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -939,7 +947,7 @@ GameObject:
   - component: {fileID: 1340271209}
   - component: {fileID: 1340271208}
   m_Layer: 5
-  m_Name: HealthBar
+  m_Name: BossHealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1316,7 +1324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11fe81b949454cd48bd9d4e404f6871e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enermy: {fileID: 4554581095625157272, guid: e0a67118bbe114c44bfe7f403f0b96f1, type: 3}
+  enermy: {fileID: 4274120180313542143, guid: e0a67118bbe114c44bfe7f403f0b96f1, type: 3}
   timeBeforeSpawning: 1.5
   timeBetweenEnemies: 0.25
   timeBeforeWaves: 2
@@ -1516,61 +1524,65 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 1
---- !u!1001 &2638216638641040019
+--- !u!1001 &2447503237884831044
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2638216638918768308, guid: 4273590bd785f944fa4470e401b83b6a, type: 3}
-      propertyPath: m_Name
-      value: BOSS
-      objectReference: {fileID: 0}
-    - target: {fileID: 2638216638918768313, guid: 4273590bd785f944fa4470e401b83b6a, type: 3}
+    - target: {fileID: 2447503238702807203, guid: 4273590bd785f944fa4470e401b83b6a, type: 3}
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 2638216638918768313, guid: 4273590bd785f944fa4470e401b83b6a, type: 3}
+    - target: {fileID: 2447503238702807203, guid: 4273590bd785f944fa4470e401b83b6a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.44
       objectReference: {fileID: 0}
-    - target: {fileID: 2638216638918768313, guid: 4273590bd785f944fa4470e401b83b6a, type: 3}
+    - target: {fileID: 2447503238702807203, guid: 4273590bd785f944fa4470e401b83b6a, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.79
       objectReference: {fileID: 0}
-    - target: {fileID: 2638216638918768313, guid: 4273590bd785f944fa4470e401b83b6a, type: 3}
+    - target: {fileID: 2447503238702807203, guid: 4273590bd785f944fa4470e401b83b6a, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.034556028
       objectReference: {fileID: 0}
-    - target: {fileID: 2638216638918768313, guid: 4273590bd785f944fa4470e401b83b6a, type: 3}
+    - target: {fileID: 2447503238702807203, guid: 4273590bd785f944fa4470e401b83b6a, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2638216638918768313, guid: 4273590bd785f944fa4470e401b83b6a, type: 3}
+    - target: {fileID: 2447503238702807203, guid: 4273590bd785f944fa4470e401b83b6a, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2638216638918768313, guid: 4273590bd785f944fa4470e401b83b6a, type: 3}
+    - target: {fileID: 2447503238702807203, guid: 4273590bd785f944fa4470e401b83b6a, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2638216638918768313, guid: 4273590bd785f944fa4470e401b83b6a, type: 3}
+    - target: {fileID: 2447503238702807203, guid: 4273590bd785f944fa4470e401b83b6a, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2638216638918768313, guid: 4273590bd785f944fa4470e401b83b6a, type: 3}
+    - target: {fileID: 2447503238702807203, guid: 4273590bd785f944fa4470e401b83b6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2638216638918768313, guid: 4273590bd785f944fa4470e401b83b6a, type: 3}
+    - target: {fileID: 2447503238702807203, guid: 4273590bd785f944fa4470e401b83b6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2638216638918768313, guid: 4273590bd785f944fa4470e401b83b6a, type: 3}
+    - target: {fileID: 2447503238702807203, guid: 4273590bd785f944fa4470e401b83b6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2447503238702807204, guid: 4273590bd785f944fa4470e401b83b6a, type: 3}
+      propertyPath: m_Name
+      value: BOSS
+      objectReference: {fileID: 0}
+    - target: {fileID: 2447503238702807206, guid: 4273590bd785f944fa4470e401b83b6a, type: 3}
+      propertyPath: bossHealth
+      value: 
+      objectReference: {fileID: 1340271208}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4273590bd785f944fa4470e401b83b6a, type: 3}
 --- !u!1001 &9003292642837101088
@@ -1580,9 +1592,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9003292642754410918, guid: 769d6a845193376438c7d95a01679992, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9003292643434291735, guid: 769d6a845193376438c7d95a01679992, type: 3}
       propertyPath: m_Name
       value: LeafRanger
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003292643434291735, guid: 769d6a845193376438c7d95a01679992, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 9003292643434291736, guid: 769d6a845193376438c7d95a01679992, type: 3}
       propertyPath: m_RootOrder
