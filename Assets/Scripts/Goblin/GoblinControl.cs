@@ -9,6 +9,10 @@ public class GoblinControl : MonoBehaviour
     public float speed = 2.0f;
     private const float facingToFaceDistance = 2f;
     public GoblinBehavior goblinBehavior;
+    public GoblinHealth goblinHealth;
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
+    public LayerMask playerLayer;
 
     void Start()
     {
@@ -25,6 +29,16 @@ public class GoblinControl : MonoBehaviour
         bool isFlipped = direction.x > 0;
         var distanceToPlayer = direction.magnitude;
         this.GetComponent<SpriteRenderer>().flipX = !isFlipped;
+
+        if (isFlipped)
+        {
+            attackPoint.position = transform.position + new Vector3(1, 0, 0);
+        }
+        else
+        {
+            attackPoint.position = transform.position + new Vector3(-1, 0, 0);
+        }
+
         transform.Translate(direction.normalized * speed * Time.deltaTime);
 
         // control enermies behavior
@@ -35,7 +49,25 @@ public class GoblinControl : MonoBehaviour
         else
         {
             goblinBehavior.handleStopRun();
-            goblinBehavior.handleAttack();
+            Attack();
         }
+    }
+
+    private void Attack()
+    {
+        goblinBehavior.handleAttack();
+        Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
+        foreach (Collider2D player in hitPlayers)
+        {
+            // this code to Damage the player
+            //player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null)
+            return;
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }

@@ -7,12 +7,17 @@ public class BossControl : MonoBehaviour
 {
     public GameObject spell;
     public BossBehavior bossBehavior;
+    public BossHealth bossHealth;
+    public Transform attackPoint;
+    public float attackRange = 1f;
+    public LayerMask playerLayer;
     private Transform player;
     private float speed = 2.0f;
-    private const float facingToFaceDistance = 5f;
+    private const float facingToFaceDistance = 4f;
     private int attackCount = 1;
     private const float timeBetweenSpell = 0.5f;
     private const float timeDelayForDestroySpell = 1.2f;
+    private const float attackDamage = 10;
     private const int amountOfSpell = 3;
     List<GameObject> spawnedSpells = new List<GameObject>();
     private bool hasStartedCastCoroutine = false;
@@ -21,7 +26,7 @@ public class BossControl : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        player = GameObject.Find(Constants.player_name).transform;
+        player = GameObject.FindWithTag(Constants.player_name).transform;
     }
 
     // Update is called once per frame
@@ -34,12 +39,20 @@ public class BossControl : MonoBehaviour
         bool isFlipped = direction.x > 0;
         this.GetComponent<SpriteRenderer>().flipX = isFlipped;
         var distanceToPlayer = direction.magnitude;
-        transform.Translate(direction.normalized * speed * Time.deltaTime);
         
+        if (isFlipped)
+        {
+            attackPoint.position = transform.position + new Vector3(0, -1, 0);
+        } else
+        {
+            attackPoint.position = transform.position + new Vector3(0, -1, 0);
+        }
+
         // control enermies behavior
         if (distanceToPlayer > facingToFaceDistance)
         {
-             bossBehavior.handleWalk();
+            transform.Translate(direction.normalized * speed * Time.deltaTime);
+            bossBehavior.handleWalk();
         }
         else
         {
@@ -62,9 +75,22 @@ public class BossControl : MonoBehaviour
     IEnumerator Attack()
     {
         bossBehavior.handleAttack();
+        Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
+        foreach(Collider2D player in hitPlayers)
+        {
+            // this code to Damage the player
+            //player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+        }
         yield return StartCoroutine(AttackDelayTime());
         attackCount++;
         hasStartedAttackCoroutine = false;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null)
+           return;
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 
     // cast spells
@@ -92,7 +118,7 @@ public class BossControl : MonoBehaviour
 
     public IEnumerator SpawnSpell()
     {
-        player = GameObject.Find(Constants.player_name).transform;
+        player = GameObject.FindWithTag(Constants.player_name).transform;
 
         //Spawn enemies in a random position
         for (int i = 0; i < amountOfSpell; i++)
