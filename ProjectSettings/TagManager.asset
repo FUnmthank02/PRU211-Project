@@ -4,16 +4,18 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - BOSS
+  - ground
+  - bullet
+  - boss
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - 
   - Water
   - UI
-  - Enermies
-  - Spell
+  - 
+  - 
   - 
   - 
   - 
