@@ -9,7 +9,7 @@ namespace Assets.Scripts
     public static class Constants
     {
         // Player's name
-        public const string player_name = "LeafRanger";
+        public const string player_name = "Player";
 
         // Enermies's names
         public const string goblin_name = "goblin";
