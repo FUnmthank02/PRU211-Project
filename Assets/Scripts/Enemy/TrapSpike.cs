@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -14,6 +15,8 @@ public class TrapSpike : MonoBehaviour
     private bool trigger;
     private bool active;
     private bool load;
+
+    private bool isDamaging = false;
 
     private PlayerHealth player;
 
@@ -38,17 +41,13 @@ public class TrapSpike : MonoBehaviour
         }
     }
 
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        player = null;
-    }
-
     private void Update()
     {
         if (active && player != null)
         {
             player.TakeDamage(damage);
+            Debug.Log("xxx");
+            
         }
 
     }
