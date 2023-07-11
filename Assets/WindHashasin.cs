@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WindHashasin : MonoBehaviour
@@ -10,6 +11,7 @@ public class WindHashasin : MonoBehaviour
     public float moveHoz;
     public int maxHealth = 100;
     public int currentHealth;
+    public GameObject gameover;
 
     public HashasinHealth healthBar;
 
@@ -240,9 +242,9 @@ public class WindHashasin : MonoBehaviour
             doLand();
             isJumping = false;
         }
-        if (collision.collider.CompareTag("boss"))
+        if (collision.collider.CompareTag("Enemy"))
         {
-            TakeDamage(20);
+            TakeDamage(10);
         }
     }
 
@@ -275,6 +277,7 @@ public class WindHashasin : MonoBehaviour
     private void Die()
     {
         Animator.SetTrigger("Death");
-        /*Destroy(gameObject);*/
+        Destroy(gameObject);
+        gameover.SetActive(true);
     }
 }
