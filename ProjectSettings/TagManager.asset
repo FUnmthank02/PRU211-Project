@@ -7,6 +7,10 @@ TagManager:
   - ground
   - bullet
   - boss
+  - BOSS
+  - Enemy
+  - DeathZone
+  - LeafRanger
   layers:
   - Default
   - TransparentFX
