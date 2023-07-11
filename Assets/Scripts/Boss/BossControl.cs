@@ -39,11 +39,12 @@ public class BossControl : MonoBehaviour
         bool isFlipped = direction.x > 0;
         this.GetComponent<SpriteRenderer>().flipX = isFlipped;
         var distanceToPlayer = direction.magnitude;
-        
+
         if (isFlipped)
         {
             attackPoint.position = transform.position + new Vector3(0, -1, 0);
-        } else
+        }
+        else
         {
             attackPoint.position = transform.position + new Vector3(0, -1, 0);
         }
@@ -76,7 +77,7 @@ public class BossControl : MonoBehaviour
     {
         bossBehavior.handleAttack();
         Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
-        foreach(Collider2D player in hitPlayers)
+        foreach (Collider2D player in hitPlayers)
         {
             // this code to Damage the player
             //player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
@@ -89,7 +90,7 @@ public class BossControl : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         if (attackPoint == null)
-           return;
+            return;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 

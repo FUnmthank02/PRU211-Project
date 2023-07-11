@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -30,7 +31,7 @@ public class TrapSpike : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == Constants.player_name)
         {
             if (!trigger)
             {
@@ -47,7 +48,7 @@ public class TrapSpike : MonoBehaviour
         {
             player.TakeDamage(damage);
             Debug.Log("xxx");
-            
+
         }
 
     }
