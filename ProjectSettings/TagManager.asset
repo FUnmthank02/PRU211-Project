@@ -5,16 +5,21 @@ TagManager:
   serializedVersion: 2
   tags:
   - ground
+  - bullet
+  - boss
   - BOSS
+  - Enemy
+  - DeathZone
+  - LeafRanger
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - 
   - Water
   - UI
-  - Enermies
-  - Spell
+  - 
+  - 
   - 
   - 
   - 

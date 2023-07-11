@@ -10,7 +10,7 @@ namespace Assets.Scripts
     {
         // Player's name
         public const string player_name = "Player";
-        
+
         // Enermies's names
         public const string goblin_name = "goblin";
         public const string boss_name = "boss";

@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,7 @@ public class TrapShuriken : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Player"))
+        if (collision.collider.CompareTag(Constants.player_name))
         {
 
             StartCoroutine(DoDamageOverTime(collision.gameObject));
@@ -20,7 +21,7 @@ public class TrapShuriken : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Player"))
+        if (collision.collider.CompareTag(Constants.player_name))
         {
             isDamaging = false;
         }

@@ -1,3 +1,5 @@
+using Assets.Scripts;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -15,6 +17,8 @@ public class TrapSpike : MonoBehaviour
     private bool active;
     private bool load;
 
+    private bool isDamaging = false;
+
     private PlayerHealth player;
 
     // Start is called before the first frame update
@@ -27,7 +31,7 @@ public class TrapSpike : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == Constants.player_name)
         {
             if (!trigger)
             {
@@ -38,17 +42,13 @@ public class TrapSpike : MonoBehaviour
         }
     }
 
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        player = null;
-    }
-
     private void Update()
     {
         if (active && player != null)
         {
             player.TakeDamage(damage);
+            Debug.Log("xxx");
+
         }
 
     }

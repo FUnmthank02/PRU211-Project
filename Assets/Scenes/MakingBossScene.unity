@@ -571,8 +571,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7ebf73d2f8b7e645b895283e805ea9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heath: 100
-  deathEffect: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1654,15 +1652,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9003292643434291739, guid: 769d6a845193376438c7d95a01679992, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9003292643434291741, guid: 769d6a845193376438c7d95a01679992, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9003292643434291742, guid: 769d6a845193376438c7d95a01679992, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9003292643434291743, guid: 769d6a845193376438c7d95a01679992, type: 3}
       propertyPath: m_Enabled

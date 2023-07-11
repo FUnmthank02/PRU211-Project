@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9003292642754410919}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,9 +47,10 @@ GameObject:
   - component: {fileID: 9003292643434291741}
   - component: {fileID: 9003292643434291742}
   - component: {fileID: 9003292643434291743}
-  m_Layer: 0
+  - component: {fileID: 2764922112574913331}
+  m_Layer: 3
   m_Name: LeafRanger
-  m_TagString: Untagged
+  m_TagString: LeafRanger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -232,3 +233,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 9003292643434291738}
+--- !u!114 &2764922112574913331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9003292643434291735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 477f084fc6ad3f34dabbd69d57b11809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  iFramesDuration: 2
+  numberOfFlashes: 1
