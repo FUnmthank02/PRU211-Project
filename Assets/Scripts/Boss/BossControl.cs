@@ -42,11 +42,10 @@ public class BossControl : MonoBehaviour
 
         if (isFlipped)
         {
-            attackPoint.position = transform.position + new Vector3(0, -1, 0);
-        }
-        else
+            attackPoint.position = transform.position + new Vector3(2.5f, -1, 0);
+        } else
         {
-            attackPoint.position = transform.position + new Vector3(0, -1, 0);
+            attackPoint.position = transform.position + new Vector3(-2.5f, -1, 0);
         }
 
         // control enermies behavior
