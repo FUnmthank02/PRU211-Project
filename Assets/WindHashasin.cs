@@ -44,6 +44,7 @@ public class WindHashasin : MonoBehaviour
     [SerializeField] private int maxJumpCount = 0;
     private Rigidbody2D rb => this.GetComponent<Rigidbody2D>();
     public Animator Animator => this.GetComponent<Animator>();
+    [SerializeField] AudioSource audiSource;
 
     void Start()
     {
@@ -61,22 +62,27 @@ public class WindHashasin : MonoBehaviour
         {
             transform.position += new Vector3(moveHoz * speed * Time.deltaTime, 0, 0);
             Animator.SetFloat("Speed", 1);
+            Invoke("PlayMoveSound", 2f);
         }
         if (moveHoz > 0 && facingRight)
         {
-            if(Input.GetKeyDown(KeyCode.M))
+            if (Input.GetKeyDown(KeyCode.M))
             {
                 transform.Translate(Vector3.left * 1);
             }
             Flip();
+            Invoke("PlayMoveSound", 2f);
+
         }
         if (moveHoz < 0 && !facingRight)
         {
-			if (Input.GetKeyDown(KeyCode.M))
-			{
-				transform.Translate(Vector3.right * 1);
-			}
-			Flip();
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                transform.Translate(Vector3.right * 1);
+            }
+            Flip();
+            Invoke("PlayMoveSound", 2f);
+
         }
 
         //Jump
@@ -117,33 +123,36 @@ public class WindHashasin : MonoBehaviour
         {
             this.Animator.SetTrigger("Def");
         }
-		if (Input.GetKeyDown(KeyCode.I))
-		{
+        if (Input.GetKeyDown(KeyCode.I))
+        {
             if (this.jumpCount == 0)
             {
-				StartCoroutine(Tele());
-			}
-		}
-	}
+                StartCoroutine(Tele());
+            }
+        }
+    }
+    void PlayMoveSound()
+    {
+        AudioManager.Instance.PlaySFX("move");
+    }
+    IEnumerator Tele()
+    {
+        Animator.SetTrigger("tele");
+        // Đợi cho đến khi animation chạy xong
+        yield return new WaitForSeconds(0.5f);
+        if (facingRight)
+        {
+            transform.Translate(Vector3.left * 3);
+        }
+        if (!facingRight)
+        {
+            transform.Translate(Vector3.right * -3);
+        }
+        // Lệnh khác sẽ được chạy sau khi animation chạy xong
+    }
 
-	IEnumerator Tele()
-	{
-		Animator.SetTrigger("tele");
-		// Đợi cho đến khi animation chạy xong
-		yield return new WaitForSeconds(0.5f);
-		if (facingRight)
-		{
-			transform.Translate(Vector3.left * 3);
-		}
-		if (!facingRight)
-		{
-			transform.Translate(Vector3.right * -3);
-		}
-		// Lệnh khác sẽ được chạy sau khi animation chạy xong
-	}
-
-	//cast spell
-	IEnumerator Cast()
+    //cast spell
+    IEnumerator Cast()
     {
         // Đợi cho đến khi animation chạy xong
         yield return new WaitForSeconds(0f);
