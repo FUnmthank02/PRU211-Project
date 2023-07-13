@@ -12,7 +12,6 @@ public class AudioManager : MonoBehaviour
     public Sound[] musicSounds, sfxSounds;
     public AudioSource musicSource, sfxSource;
     Scene scene1;
-
     private void Awake()
     {
         Instance = this;

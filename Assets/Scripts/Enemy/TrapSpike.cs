@@ -43,12 +43,10 @@ public class TrapSpike : MonoBehaviour
     }
 
     private void Update()
-    {
+     {
         if (active && player != null)
         {
             player.TakeDamage(damage);
-            Debug.Log("xxx");
-
         }
 
     }

@@ -13,10 +13,11 @@ public class GoblinControl : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask playerLayer;
+    public int attackDamage = 5;
 
     void Start()
     {
-        player = GameObject.FindWithTag(Constants.player_name).transform;
+        player = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame
@@ -60,7 +61,7 @@ public class GoblinControl : MonoBehaviour
         foreach (Collider2D player in hitPlayers)
         {
             // this code to Damage the player
-            //player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+            player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
         }
     }
 
@@ -70,4 +71,12 @@ public class GoblinControl : MonoBehaviour
             return;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
+
+    /*public void Death()
+    {
+        if (goblinHealth.healthSlider.value <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }*/
 }

@@ -16,14 +16,12 @@ public class AssasinSkill : MonoBehaviour
         
     }
 
-    public int damageAmount = 13;
-
-  /*  private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Enemy enemy = collision.GetComponent<Enemy>();
+        GoblinHealth enemy = collision.GetComponentInChildren<GoblinHealth>();
         if (enemy != null)
         {
-            enemy.TakeDamage(damageAmount);
+            enemy.SetHeath(20);
         }
-    }*/
+    }
 }

@@ -38,6 +38,10 @@ public class WindHashasin : MonoBehaviour
 
     private int jumpCount = 0;
     private SpriteRenderer spriteRenderer;
+    [SerializeField] private AudioSource moveSound;
+    [SerializeField] private AudioSource jumpSound;
+    [SerializeField] private AudioSource atkSound;
+    
 
     private bool isRunning = false;
 
@@ -61,6 +65,7 @@ public class WindHashasin : MonoBehaviour
         {
             transform.position += new Vector3(moveHoz * speed * Time.deltaTime, 0, 0);
             Animator.SetFloat("Speed", 1);
+/*          AudioManager.Instance.PlaySFX("move");*/
         }
         if (moveHoz > 0 && facingRight)
         {
@@ -75,7 +80,7 @@ public class WindHashasin : MonoBehaviour
 			if (Input.GetKeyDown(KeyCode.M))
 			{
 				transform.Translate(Vector3.right * 1);
-			}
+            }
 			Flip();
         }
 
@@ -83,12 +88,16 @@ public class WindHashasin : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             this.Animator.SetTrigger("Jump");
+
             this.doJump();
+            AudioManager.Instance.PlaySFX("jump");
         }
         if (Input.GetKeyDown(KeyCode.W) && speed > 1)
         {
             this.Animator.CrossFade("Jump", 0.001f);
+
             this.doJump();
+            AudioManager.Instance.PlaySFX("jump");
         }
 
 
@@ -102,6 +111,7 @@ public class WindHashasin : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J))
         {
             StartCoroutine(ATK());
+            AudioManager.Instance.PlaySFX("atk");
         }
         if (Input.GetKeyDown(KeyCode.U))
         {
@@ -110,6 +120,7 @@ public class WindHashasin : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
         {
             StartCoroutine(Cast2());
+            AudioManager.Instance.PlaySFX("atk");
         }
 
         //def
