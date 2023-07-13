@@ -48,7 +48,7 @@ public class GameController : MonoBehaviour
                 for (int i = 0; i < enemiesPerWave; i++)
                 {
                     var rand = Random.Range(0, 1f);
-                    Instantiate(enermyTransform, rand > 0.5f ? leftPositionSpawn : rightPositionSpawn, Quaternion.identity);
+                    Instantiate(enermyTransform,rightPositionSpawn, Quaternion.identity);
                     currentNumberOfEnemies++;
                     yield return new WaitForSeconds(timeBetweenEnemies);
                 }

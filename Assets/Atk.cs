@@ -15,14 +15,13 @@ public class Atk : MonoBehaviour
 
     }
 
-    public int damageAmount = 4;
 
-/*    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Enemy enemy = collision.GetComponent<Enemy>();
+        GoblinHealth enemy = collision.GetComponentInChildren<GoblinHealth>();
         if (enemy != null)
         {
-            enemy.TakeDamage(damageAmount);
+            enemy.SetHeath(5);
         }
-    }*/
+    }
 }

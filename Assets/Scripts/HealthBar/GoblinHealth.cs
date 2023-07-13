@@ -14,9 +14,9 @@ public class GoblinHealth : MonoBehaviour
         SetHeath(health);
     }
 
-    public void SetHeath(int health)
+    public void SetHeath(int damage)
     {
-        healthSlider.value = health;
+        healthSlider.value -= damage;
         fill.color = gradient.Evaluate(healthSlider.normalizedValue);
     }
 }
