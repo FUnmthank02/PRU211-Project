@@ -10,10 +10,14 @@ public class TrapSpike : MonoBehaviour
     [SerializeField] private float activateDelay;
     [SerializeField] private float activeTime;
     private Animator anim;
-    private SpriteRenderer SpriteRende;
+    private SpriteRenderer spriteRenderer;
     private bool trigger;
     private bool active;
     private bool load;
+<<<<<<< Updated upstream
+=======
+    private bool playerInRange; // Biến kiểm tra người chơi có trong phạm vi của bẫy gai hay không
+>>>>>>> Stashed changes
 
     private PlayerHealth player;
 
@@ -21,20 +25,28 @@ public class TrapSpike : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-
-        SpriteRende = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
+            playerInRange = true;
+            player = collision.GetComponent<PlayerHealth>();
+
             if (!trigger)
             {
                 StartCoroutine(ActiveSpikeTrap());
             }
+        }
+    }
 
-            player = collision.GetComponent<PlayerHealth>();
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == Constants.player_name)
+        {
+            playerInRange = false;
         }
     }
 
@@ -46,28 +58,37 @@ public class TrapSpike : MonoBehaviour
 
     private void Update()
     {
-        if (active && player != null)
+        if (active && playerInRange && player != null)
         {
             player.TakeDamage(damage);
+<<<<<<< Updated upstream
+=======
+            Debug.Log("xxx");
+>>>>>>> Stashed changes
         }
-
     }
 
     private IEnumerator ActiveSpikeTrap()
     {
-
         trigger = true;
-        SpriteRende.color = Color.red;
+        spriteRenderer.color = Color.red;
 
         yield return new WaitForSeconds(activateDelay);
-        SpriteRende.color = Color.white;
+
+        spriteRenderer.color = Color.white;
         active = true;
         anim.SetBool("Active", true);
 
         yield return new WaitForSeconds(activeTime);
+
         active = false;
         trigger = false;
         anim.SetBool("Active", false);
+
+        if (playerInRange)
+        {
+            StartCoroutine(ActiveSpikeTrap());
+        }
     }
 
 }

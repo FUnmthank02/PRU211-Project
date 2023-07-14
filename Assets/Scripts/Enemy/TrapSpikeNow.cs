@@ -1,19 +1,20 @@
+using Assets.Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrapSpear : MonoBehaviour
+public class TrapSpikeNow : MonoBehaviour
 {
     [SerializeField] private float damage;
-    [Header("Spear Trap Timer")]
-    [SerializeField] private float activateDelay;
+    [Header("SpikeTrap Timer")]
     [SerializeField] private float activeTime;
     private Animator anim;
-    private SpriteRenderer spriteRenderer;
+    private SpriteRenderer SpriteRende;
     private bool trigger;
     private bool active;
     private bool load;
-    private bool playerInRange;
+
+    private bool isDamaging = false;
 
     private PlayerHealth player;
 
@@ -22,16 +23,16 @@ public class TrapSpear : MonoBehaviour
     {
         anim = GetComponent<Animator>();
 
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        SpriteRende = GetComponent<SpriteRenderer>();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == Constants.player_name)
         {
             if (!trigger)
             {
-                StartCoroutine(ActiveSpearTrap());
+                StartCoroutine(ActiveSpikeTrap());
             }
 
             player = collision.GetComponent<PlayerHealth>();
@@ -39,45 +40,29 @@ public class TrapSpear : MonoBehaviour
     }
 
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == Constants.player_name)
-        {
-            player = null;
-        }
-    }
-
     private void Update()
     {
         if (active && player != null)
         {
             player.TakeDamage(damage);
+            Debug.Log("xxx");
+
         }
 
     }
 
-    private IEnumerator ActiveSpearTrap()
+    private IEnumerator ActiveSpikeTrap()
     {
-
         trigger = true;
-        spriteRenderer.color = Color.red;
+        SpriteRende.color = Color.red;
 
-        yield return new WaitForSeconds(activateDelay);
-
-        spriteRenderer.color = Color.white;
+        SpriteRende.color = Color.white;
         active = true;
         anim.SetBool("Active", true);
 
         yield return new WaitForSeconds(activeTime);
-
         active = false;
         trigger = false;
         anim.SetBool("Active", false);
-
-        if (playerInRange)
-        {
-            StartCoroutine(ActiveSpearTrap());
-        }
     }
-
 }
