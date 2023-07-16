@@ -249,6 +249,7 @@ MonoBehaviour:
   moveHoz: 0
   maxHealth: 100
   currentHealth: 100
+  gameover: {fileID: 9043172167395890695, guid: ec2558f4fb134be46af50ffd6b07a37d, type: 3}
   healthBar: {fileID: 7747654295623027937}
   airAttackDuration: 0.5
   AtkPoint: {fileID: 0}

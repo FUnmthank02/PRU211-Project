@@ -276,8 +276,9 @@ public class WindHashasin : MonoBehaviour
 
     private void Die()
     {
+        gameover.SetActive(true);
         Animator.SetTrigger("Death");
         Destroy(gameObject);
-        gameover.SetActive(true);
+        
     }
 }

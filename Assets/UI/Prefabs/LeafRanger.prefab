@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2764922112574913331, guid: 769d6a845193376438c7d95a01679992, type: 3}
+      propertyPath: gameover
+      value: 
+      objectReference: {fileID: 9043172167395890695, guid: ec2558f4fb134be46af50ffd6b07a37d, type: 3}
     - target: {fileID: 9003292643434291735, guid: 769d6a845193376438c7d95a01679992, type: 3}
       propertyPath: m_Name
       value: LeafRanger

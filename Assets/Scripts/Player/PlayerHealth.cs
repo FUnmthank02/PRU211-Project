@@ -15,7 +15,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int numberOfFlashes;
     private SpriteRenderer spriteRend;
     private bool isInvulnerable = false;
-
+    public GameObject gameover;
 
     void Start()
     {
@@ -41,7 +41,9 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
+        gameover.SetActive(true);
         Destroy(gameObject);
+       
     }
 
     private IEnumerator Invunerability()

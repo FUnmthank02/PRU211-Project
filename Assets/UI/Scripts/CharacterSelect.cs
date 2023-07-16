@@ -51,6 +51,7 @@ public class CharacterSelect : MonoBehaviour
         {
             if(i == index)
             {
+                
                 characters[i].GetComponent<SpriteRenderer>().color = Color.white;
                 characters[i].GetComponent<Animator>().enabled = true;
                 selectedCharacter = characterPrefabs[i];
