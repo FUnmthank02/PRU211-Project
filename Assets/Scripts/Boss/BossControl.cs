@@ -17,7 +17,7 @@ public class BossControl : MonoBehaviour
     private int attackCount = 1;
     private const float timeBetweenSpell = 0.5f;
     private const float timeDelayForDestroySpell = 1.2f;
-    private const float attackDamage = 10;
+    private const int attackDamage = 10;
     private const int amountOfSpell = 3;
     List<GameObject> spawnedSpells = new List<GameObject>();
     private bool hasStartedCastCoroutine = false;
@@ -26,6 +26,7 @@ public class BossControl : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        bossHealth.SetMaxHeath(100);
         player = GameObject.FindWithTag(Constants.player_name).transform;
     }
 
@@ -75,12 +76,22 @@ public class BossControl : MonoBehaviour
     IEnumerator Attack()
     {
         bossBehavior.handleAttack();
+        yield return StartCoroutine(WaitATK());
         Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
+        
         foreach (Collider2D player in hitPlayers)
         {
             // this code to Damage the player
-            //player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+            player.GetComponent<WindHashasin>().TakeDamage(10);
         }
+/*        foreach (Collider2D player in hitPlayers)
+        {
+            WindHashasin windHashasinComponent = player.GetComponent<WindHashasin>();
+            if (windHashasinComponent != null)
+            {
+                windHashasinComponent.TakeDamage(attackDamage);
+            }
+        }*/
         yield return StartCoroutine(AttackDelayTime());
         attackCount++;
         hasStartedAttackCoroutine = false;
@@ -108,6 +119,11 @@ public class BossControl : MonoBehaviour
     IEnumerator WaitAnimationEnd()
     {
         yield return new WaitForSeconds(0.5f);
+    }
+
+    IEnumerator WaitATK()
+    {
+        yield return new WaitForSeconds(1.1f);
     }
 
     // wait for the next attack
@@ -140,15 +156,15 @@ public class BossControl : MonoBehaviour
         switch (orderIndex)
         {
             case 0:
-                GameObject spellInstance1 = Instantiate(spell, player.position + new Vector3(0, 6, 0), Quaternion.identity);
+                GameObject spellInstance1 = Instantiate(spell, player.position + new Vector3(0, 3, 0), Quaternion.identity);
                 spawnedSpells.Add(spellInstance1);
                 break;
             case 1:
-                GameObject spellInstance2 = Instantiate(spell, player.position + new Vector3(3, 6, 0), Quaternion.identity);
+                GameObject spellInstance2 = Instantiate(spell, player.position + new Vector3(3, 3, 0), Quaternion.identity);
                 spawnedSpells.Add(spellInstance2);
                 break;
             case 2:
-                GameObject spellInstance3 = Instantiate(spell, player.position + new Vector3(-3, 6, 0), Quaternion.identity);
+                GameObject spellInstance3 = Instantiate(spell, player.position + new Vector3(-3, 3, 0), Quaternion.identity);
                 spawnedSpells.Add(spellInstance3);
                 break;
         }
@@ -160,4 +176,5 @@ public class BossControl : MonoBehaviour
         yield return new WaitForSeconds(delay);
         Destroy(spellObject);
     }
+
 }

@@ -2,9 +2,11 @@ using Assets.Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class GoblinControl : MonoBehaviour
 {
+    public GameController controller;
     private Transform player;
     public float speed = 2.0f;
     private const float facingToFaceDistance = 2f;
@@ -52,6 +54,12 @@ public class GoblinControl : MonoBehaviour
             goblinBehavior.handleStopRun();
             Attack();
         }
+
+        if (goblinHealth.healthSlider.value <= 0)
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     private void Attack()
@@ -71,12 +79,4 @@ public class GoblinControl : MonoBehaviour
             return;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
-
-    /*public void Death()
-    {
-        if (goblinHealth.healthSlider.value <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }*/
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8086722824374894844}
   m_Layer: 7
   m_Name: Boss_Spell
-  m_TagString: Untagged
+  m_TagString: bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb111eca5ec1ed645b8d1dc1ca38219a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hashasin: {fileID: 0}
 --- !u!61 &8086722824374894844
 BoxCollider2D:
   m_ObjectHideFlags: 0

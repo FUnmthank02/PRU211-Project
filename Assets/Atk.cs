@@ -23,5 +23,13 @@ public class Atk : MonoBehaviour
         {
             enemy.SetHeath(5);
         }
+        BossHealth atkboss = collision.GetComponentInChildren<BossHealth>();
+        Debug.Log("Atkboss: ", atkboss);
+        if (atkboss!= null)
+        {
+            atkboss.SetHeath(10);
+            Debug.Log("Here");
+        }
+
     }
 }

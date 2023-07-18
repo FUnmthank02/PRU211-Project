@@ -128,13 +128,13 @@ public class WindHashasin : MonoBehaviour
         {
             this.Animator.SetTrigger("Def");
         }
-		if (Input.GetKeyDown(KeyCode.I))
+		/*if (Input.GetKeyDown(KeyCode.I))
 		{
             if (this.jumpCount == 0)
             {
 				StartCoroutine(Tele());
 			}
-		}
+		}*/
 	}
 
 	IEnumerator Tele()
@@ -257,6 +257,10 @@ public class WindHashasin : MonoBehaviour
         {
             TakeDamage(10);
         }
+        if (collision.collider.CompareTag("bullet"))
+        {
+            StartCoroutine(AttackDelayTime()); 
+        }
     }
 
     IEnumerator AirAttack()
@@ -290,5 +294,11 @@ public class WindHashasin : MonoBehaviour
         Animator.SetTrigger("Death");
         Destroy(gameObject);
         gameover.SetActive(true);
+    }
+
+    IEnumerator AttackDelayTime()
+    {
+        yield return new WaitForSeconds(1.5f);
+        TakeDamage(20);
     }
 }

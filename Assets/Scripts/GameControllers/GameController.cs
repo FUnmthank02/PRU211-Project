@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     // Our enemy to spawn
+    public GoblinHealth health;
     public GameObject enermy;
     private Transform enermyTransform;
     // We want to delay our code at certain times
@@ -34,27 +35,48 @@ public class GameController : MonoBehaviour
         Vector3 cameraPosition = mainCamera.transform.position;
 
         // Calculate the position for spawning in the left and right edges of the camera view
-        Vector3 leftPositionSpawn = cameraPosition - (mainCamera.transform.right * width / 2.0f) + new Vector3(-2, 0, 0);
         Vector3 rightPositionSpawn = cameraPosition + (mainCamera.transform.right * width / 2.0f) + new Vector3(2, 0, 0);
 
         // Three times spawning
-        int limitSpawn = 3;
-        while (limitSpawn <= 3 && limitSpawn >= 1)
+        int limitSpawn = 5;
+        while (limitSpawn > 0)
         {
-            // Don't spawn anything new until all the previous wave's enemies are dead
-            if (currentNumberOfEnemies <= 0)
+            for (int i = 0; i < enemiesPerWave; i++)
             {
-                //Spawn enemies in a random position
-                for (int i = 0; i < enemiesPerWave; i++)
-                {
-                    var rand = Random.Range(0, 1f);
-                    Instantiate(enermyTransform,rightPositionSpawn, Quaternion.identity);
-                    currentNumberOfEnemies++;
-                    yield return new WaitForSeconds(timeBetweenEnemies);
-                }
+                var rand = Random.Range(0, 1f);
+                Instantiate(enermyTransform, rightPositionSpawn, Quaternion.identity);
+                currentNumberOfEnemies++;
+                yield return new WaitForSeconds(timeBetweenEnemies);
             }
-            yield return new WaitForSeconds(timeBeforeWaves);
+
             limitSpawn--;
+            yield return new WaitForSeconds(5f);
+
         }
+
+
+        //while (limitSpawn <= 3 && limitSpawn >= 1)
+        //{
+        //    // Don't spawn anything new until all the previous wave's enemies are dead
+        //    if (currentNumberOfEnemies <= 0)
+        //    {
+        //        //Spawn enemies in a random position
+        //        for (int i = 0; i < enemiesPerWave; i++)
+        //        {
+        //            var rand = Random.Range(0, 1f);
+        //            Instantiate(enermyTransform,rightPositionSpawn, Quaternion.identity);
+        //            currentNumberOfEnemies++;
+        //            yield return new WaitForSeconds(timeBetweenEnemies);
+        //        }
+        //    }
+        //    yield return new WaitForSeconds(timeBeforeWaves);
+        //    limitSpawn--;
+        //}
     }
+
+    //public void KilledEnemy()
+    //{
+    //    currentNumberOfEnemies--;
+    //}
+
 }

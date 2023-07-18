@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class BossSpellBehavior : MonoBehaviour
 {
+    public WindHashasin hashasin;
     Animator animator;
     //private GameObject player;
 
@@ -12,12 +13,14 @@ public class BossSpellBehavior : MonoBehaviour
         animator.SetTrigger("Appear");
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+/*    private void OnCollisionEnter2D(Collision2D collision)
     {
+
         if (collision.collider.tag.Equals(Constants.player_name))
         {
-            // this code to Damage the player
-            //player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+            hashasin.TakeDamage(20);
         }
-    }
+    }*/
 }
+
+

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GoblinHealth : MonoBehaviour
 {
+    public GoblinControl goblin;
     public Slider healthSlider;
     public Gradient gradient;
     public Image fill;
